@@ -23,6 +23,6 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     //pattern: "{controller=Home}/{action=Index}/{id?}");
-    pattern: "{controller=Student}/{action=Index}/{id?}");      // ให้เรียกใช้ StudentController และ ActionMethod Index เป็นหน้าเริ่มต้น
+    pattern: "{controller=Home}/{action=Index}/{id?}");      // ให้เรียกใช้ StudentController และ ActionMethod Index เป็นหน้าเริ่มต้น
 
 app.Run();
