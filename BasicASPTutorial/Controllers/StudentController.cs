@@ -11,8 +11,12 @@ namespace BasicASPTutorial.Controllers
         //}
         public IActionResult Index()                // มี Action method ชื่อว่า Index ในรูปแบบ IActionResult >> ส่งเป้นหน้าเว็ปออกมา 
         {
-            var s1 = new Student();
-            return View();                          // เรียกใช้ method Index แล้ว return View() ออกมาซึ่งอยู่ใน folder Views/Student/Index.cshtml
+            Student s1 = new Student();             // สร้าง object
+            s1.Id = 1;
+            s1.Name = "เมฆ";
+            s1.Score = 80;
+
+            return View(s1);                          // เรียกใช้ method Index แล้ว return View() ออกมาซึ่งอยู่ใน folder Views/Student/Index.cshtml
         }
         public IActionResult Create()
         {

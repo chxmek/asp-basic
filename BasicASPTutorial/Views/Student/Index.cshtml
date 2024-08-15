@@ -1,7 +1,10 @@
-﻿
+﻿@model BasicASPTutorial.Models.Student
 @{
     ViewData["Title"] = "หน้าแรก";       // เปลี่ยนชื่อบน browser
 }
 
 <h1 class="text-center">คะแนนสอบวิชาคอมพิวเตอร์</h1>
 
+<p>รหัสนักเรียน: @Model.Id</p>
+<p>ชื่อ: @Model.Name</p>
+<p>คะแนนสอบ: @Model.Score</p>
