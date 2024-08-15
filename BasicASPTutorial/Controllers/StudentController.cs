@@ -33,6 +33,7 @@ namespace BasicASPTutorial.Controllers
 
             return View(allStudent);                          // ด้านบนเป็นวิธีการส่ง object หลายๆก้อนไปทำงานที่ View 
         }
+        // GET METHOD เป็น Default
         public IActionResult Create()
         {
             return View();
