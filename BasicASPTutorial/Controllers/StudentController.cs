@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BasicASPTutorial.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BasicASPTutorial.Controllers
 {
@@ -10,6 +11,7 @@ namespace BasicASPTutorial.Controllers
         //}
         public IActionResult Index()                // มี Action method ชื่อว่า Index ในรูปแบบ IActionResult >> ส่งเป้นหน้าเว็ปออกมา 
         {
+            var s1 = new Student();
             return View();                          // เรียกใช้ method Index แล้ว return View() ออกมาซึ่งอยู่ใน folder Views/Student/Index.cshtml
         }
         public IActionResult Create()
