@@ -10,15 +10,11 @@ namespace BasicASPTutorial.Controllers
         //}
         public IActionResult Index()                // มี Action method ชื่อว่า Index ในรูปแบบ IActionResult >> ส่งเป้นหน้าเว็ปออกมา 
         {
-            return Content("คะแนนสอบวิชาคอมพิวเตอร์");    // เข้าไปที่ https://localhost:44353/student/index
+            return View();                          // เรียกใช้ method Index แล้ว return View() ออกมาซึ่งอยู่ใน folder Views/Student/Index.cshtml
         }
-        public IActionResult Details()
+        public IActionResult Create()
         {
-            return Content("รายละเอียดคะแนนสอบ");
-        }
-        public IActionResult ShowScore(int id)
-        {
-            return Content($"คะแนนสอบของนักเรียน เลขที่ {id}");     // เข้าไปที่ https://localhost:44353/student/showscore/ใส่ตัวเลข
+            return View();
         }
     }
 }
