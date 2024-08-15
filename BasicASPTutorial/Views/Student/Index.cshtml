@@ -1,10 +1,14 @@
-﻿@model BasicASPTutorial.Models.Student
+﻿@model IEnumerable<BasicASPTutorial.Models.Student>      // นำเข้า models จาก StudentController, ใช้ IEnumerable เพื่อนำเข้า list
 @{
     ViewData["Title"] = "หน้าแรก";       // เปลี่ยนชื่อบน browser
 }
 
 <h1 class="text-center">คะแนนสอบวิชาคอมพิวเตอร์</h1>
 
-<p>รหัสนักเรียน: @Model.Id</p>
-<p>ชื่อ: @Model.Name</p>
-<p>คะแนนสอบ: @Model.Score</p>
+@foreach(var student in Model)      // ใช้ loop for each ต้องใช้กับ List เท่านั้น คือ ดึงข้อมูลทั้งหมดจาก Model แล้วเก็บค่าใน student
+{
+    <p>รหัสนักเรียน: @student.Id</p>
+    <p>ชื่อ: @student.Name</p>
+    <p>คะแนนสอบ: @student.Score</p>
+    <hr/>
+}
