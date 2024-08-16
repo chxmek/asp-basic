@@ -30,15 +30,10 @@ namespace BasicASPTutorial.Controllers
             s2.Name = "โจโจ้";
             s2.Score = 45;
 
-            Student s3 = new();
-            s3.Id = 3;
-            s3.Name = "เจน";
-            s3.Score = 50;
 
             List<Student> allStudent = new List<Student>();     // List allStudent จะสามารถเก็บข้อมูลได้เฉพาะ object จาก class Student
             allStudent.Add(s1);
             allStudent.Add(s2);
-            allStudent.Add(s3);
 
             return View(allStudent);                          // ด้านบนเป็นวิธีการส่ง object หลายๆก้อนไปทำงานที่ View 
         }
@@ -47,5 +42,15 @@ namespace BasicASPTutorial.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Student obj)
+        {
+            _db.Students.Add(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 }
