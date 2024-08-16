@@ -20,22 +20,24 @@ namespace BasicASPTutorial.Controllers
 
         public IActionResult Index()                // มี Action method ชื่อว่า Index ในรูปแบบ IActionResult >> ส่งเป้นหน้าเว็ปออกมา 
         {
-            Student s1 = new();             // สร้าง object ได้ทั้งหมด 3 รูปแบบดังนี้
-            s1.Id = 1;
-            s1.Name = "เมฆ";
-            s1.Score = 80;
+            //Student s1 = new();             // สร้าง object ได้ทั้งหมด 3 รูปแบบดังนี้
+            //s1.Id = 1;
+            //s1.Name = "เมฆ";
+            //s1.Score = 80;
 
-            var s2 = new Student();
-            s2.Id = 2;
-            s2.Name = "โจโจ้";
-            s2.Score = 45;
+            //var s2 = new Student();
+            //s2.Id = 2;
+            //s2.Name = "โจโจ้";
+            //s2.Score = 45;
 
 
-            List<Student> allStudent = new List<Student>();     // List allStudent จะสามารถเก็บข้อมูลได้เฉพาะ object จาก class Student
-            allStudent.Add(s1);
-            allStudent.Add(s2);
+            //List<Student> allStudent = new List<Student>();     // List allStudent จะสามารถเก็บข้อมูลได้เฉพาะ object จาก class Student
+            //allStudent.Add(s1);
+            //allStudent.Add(s2);
 
-            return View(allStudent);                          // ด้านบนเป็นวิธีการส่ง object หลายๆก้อนไปทำงานที่ View 
+            IEnumerable<Student> allStudent = _db.Students;      // เก็บกลุ่มข้อมูลที่ดึงมาจาก database
+
+            return View(allStudent);                             // ด้านบนเป็นวิธีการส่ง object หลายๆก้อนไปทำงานที่ View 
         }
         // GET METHOD เป็น Default
         public IActionResult Create()
