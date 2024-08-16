@@ -4,19 +4,28 @@
 }
 
 <h1 class="text-center">คะแนนสอบวิชาคอมพิวเตอร์</h1>
+<table class="table table-light">
+    <thead>
+        <tr>
+            <th>รหัสนักเรียน</th>
+            <th>ชื่อนักเรียน</th>
+            <th>คะแนนสอบ</th>
+            <th>แก้ไข</th>
+            <th>ลบ</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)      // ใช้ loop for each ต้องใช้กับ List เท่านั้น คือ ดึงข้อมูลทั้งหมดจาก Model แล้วเก็บค่าใน student
+        {
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.Name</td>
+                <td>@student.Score</td>
+                <td><a class="btn btn-warning">แก้ไข</a></td>
+                <td><a class="btn btn-danger">ลบ</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
 
-@foreach(var student in Model)      // ใช้ loop for each ต้องใช้กับ List เท่านั้น คือ ดึงข้อมูลทั้งหมดจาก Model แล้วเก็บค่าใน student
-{
-    <p>รหัสนักเรียน: @student.Id</p>
-    <p>ชื่อ: @student.Name</p>
-    <p>คะแนนสอบ: @student.Score</p>
-    @if (student.Score >= 50)
-    {
-        <strong class="text-success">สอบผ่าน</strong>
-    }
-    else
-    {
-        <strong class="text-danger">สอบไม่ผ่าน</strong>
-    }
-    <hr />
-}
+
