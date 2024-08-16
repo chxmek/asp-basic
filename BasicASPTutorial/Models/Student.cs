@@ -8,12 +8,13 @@ namespace BasicASPTutorial.Models
         [Key]                              // ระบุ data annotation ชื่อว่า Key คือต้องการให้ props Id เป็นรูปแบบ primary key >> สร้างรหัส(Id)ให้อัตโนมัติ
         public int Id { get; set; }        // ชื่อ property จะเป็นชื่อ column ในตารางนั้นๆ
 
-        [Required]                         // Name ห้ามเป็นค่าว่าง
+        [Required(ErrorMessage ="กรุณาป้อนชื่อนักเรียน")]                         // Name ห้ามเป็นค่าว่าง
         [DisplayName("ชื่อนักเรียน")]           // เปลี่ยนเป้นข้อความภาษาไทย
         public string Name { get; set; }
 
+        [Required(ErrorMessage = "กรุณาป้อนคะแนนสอบ")]
         [DisplayName("คะแนนสอบ")]
-        [Range(0,100)]                     // ระบุช่วง 0-100 ถ้าเป็นอย่างอื่นจะไม่สามารถเก็บใน database ได้
-        public int Score { get; set; }
+        [Range(0,100,ErrorMessage ="กรุณาป้อนคะแนนสอบในช่วง 0-100")]                     // ระบุช่วง 0-100 ถ้าเป็นอย่างอื่นจะไม่สามารถเก็บใน database ได้
+        public int? Score { get; set; }
     }
 }
