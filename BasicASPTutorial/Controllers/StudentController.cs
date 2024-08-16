@@ -85,5 +85,21 @@ namespace BasicASPTutorial.Controllers
             return View(obj);
         }
 
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            // ค้นหาข้อมูลจาก id
+            var obj = _db.Students.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            _db.Students.Remove(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

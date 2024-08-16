@@ -27,7 +27,12 @@
                     asp-action="Edit"
                     asp-route-id="@student.Id">แก้ไข</a>
                 </td>
-                <td><a class="btn btn-danger">ลบ</a></td>
+                <td>
+                    <a class="btn btn-danger"
+                    asp-controller="Student"
+                    asp-action="Delete"
+                    asp-route-id="@student.Id">ลบ</a>
+                </td>
             </tr>
         }
     </tbody>
