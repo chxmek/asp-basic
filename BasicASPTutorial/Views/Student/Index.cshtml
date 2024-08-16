@@ -31,7 +31,9 @@
                     <a class="btn btn-danger"
                     asp-controller="Student"
                     asp-action="Delete"
-                    asp-route-id="@student.Id">ลบ</a>
+                    asp-route-id="@student.Id"
+                    onclick="return confirm('คุณต้องการลบ @student.Name หรือไม่ ?')"
+                    >ลบ</a>
                 </td>
             </tr>
         }
