@@ -1,4 +1,5 @@
-﻿using BasicASPTutorial.Models;
+﻿using BasicASPTutorial.Data;
+using BasicASPTutorial.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BasicASPTutorial.Controllers
@@ -9,6 +10,14 @@ namespace BasicASPTutorial.Controllers
         //{
         //    return View();                          // มีคำสั่ง return View()
         //}
+
+        private readonly ApplicationDBContext _db;
+
+        public StudentController(ApplicationDBContext db)
+        {
+            _db = db;
+        }
+
         public IActionResult Index()                // มี Action method ชื่อว่า Index ในรูปแบบ IActionResult >> ส่งเป้นหน้าเว็ปออกมา 
         {
             Student s1 = new();             // สร้าง object ได้ทั้งหมด 3 รูปแบบดังนี้
